@@ -1,5 +1,5 @@
 export const profile = {
-  avatar: '/static/images/10769688.jpeg',
+  avatar: 'https://res.cloudinary.com/rohmadst/image/upload/v1533193584/persons/10769688.jpg',
   summary: "Hello, I'm <strong>Rohmad Sasmito</strong>. I'm a Software Engineer from Bojonegoro, East Java - Indonesia. <br>I mostly work on web development, focus in Javascript also JS Framework e.g: Vue.js, React.js."
 }
 
