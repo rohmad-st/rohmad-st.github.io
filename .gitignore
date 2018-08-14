@@ -1,6 +1,7 @@
 node_modules
 .DS_Store
 *.orig
+dist/
 .idea/
 bundle.js
 package-lock.json
