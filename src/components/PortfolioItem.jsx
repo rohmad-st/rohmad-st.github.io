@@ -121,7 +121,7 @@ const PortfolioItem = ({ item, index }) => {
       className={globalClass}
       custom={getCustomPosition(item.side)}
       >
-      <ContentListItemDate>
+      <ContentListItemDate key={item.date.toString()}>
         {`Created on: ${item.date.from} - ${item.date.to}`}
       </ContentListItemDate>
       <ContentListItemThumbnail>
@@ -130,8 +130,8 @@ const PortfolioItem = ({ item, index }) => {
       <ContentListItemTitle>{item.title}</ContentListItemTitle>
       <ContentListItemDescription>{item.summary}</ContentListItemDescription>
       <ContentListItemTechology>
-        {item.technologies.map((tech) =>
-          <ContentListItemTechologyBagde>{tech}</ContentListItemTechologyBagde>
+        {item.technologies.map((tech, index) =>
+          <ContentListItemTechologyBagde key={index}>{tech}</ContentListItemTechologyBagde>
         )}
       </ContentListItemTechology>
       <ContentListItemSourceLink

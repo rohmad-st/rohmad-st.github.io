@@ -35,6 +35,9 @@ const ContentList = styled.ul`
     }
   }
 `
+const ContentListGroup = styled.div`
+  padding-top: 70px;
+`
 const ContentListItemSection = styled.li`
   display: flex;
   justify-content: center;
@@ -78,7 +81,11 @@ export class Portfolio extends React.Component {
         <ContentList>
           {
             project.portfolios.map((portfolio, index) =>
-              <div key={index} id={portfolio.year} className={(index === 0) ? 'in--first__init' : ''}>
+              <ContentListGroup
+                key={index}
+                id={portfolio.year}
+                className={(index === 0) ? 'in--first__init' : ''}
+              >
                 <ContentListItemSection key={portfolio.toString()}>
                   {portfolio.year}
                 </ContentListItemSection>
@@ -87,7 +94,7 @@ export class Portfolio extends React.Component {
                     <PortfolioItem key={key} item={work} index={key}/>
                   )
                 }
-              </div>
+              </ContentListGroup>
             )
           }
         </ContentList>

@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import styled from 'styled-components'
 import { content } from '../data'
 
@@ -11,6 +12,7 @@ const HeaderList = styled.ul`
   display: inline-block;
   margin: 8px 0;
   padding: 0;
+  transition: .3s all ease-in-out;
 `
 const HeaderListItem = styled.li`
   display: inline-block;
@@ -25,10 +27,39 @@ const HeaderListItemLink = styled.a`
   text-decoration: none;
 `
 
+const refNavbar = React.createRef()
+
 export class Navigation extends React.Component {
+  getOffset (element) {
+    let bounding = element.getBoundingClientRect()
+    return {
+      top: bounding.top + document.body.scrollTop,
+      left: bounding.left + document.body.scrollLeft
+    }
+  };
+
+  handleScroll () {
+    const navbar = ReactDOM.findDOMNode(refNavbar.current)
+    const offset = 365
+    const windowsScrollTop = window.pageYOffset
+    if (windowsScrollTop >= offset) {
+      navbar.classList.add('in--fixed')
+    } else {
+      navbar.classList.remove('in--fixed')
+    }
+  }
+  
+  componentDidMount () {
+    window.addEventListener('scroll', this.handleScroll)
+  }
+
+  componentWillUnmount () {
+    window.removeEventListener('scroll', this.handleScroll)
+  }
+
   render () {
     return (
-      <HeaderNavigation>
+      <HeaderNavigation ref={refNavbar}>
         <HeaderList>
           {
             content.years.map((year, index) => (
