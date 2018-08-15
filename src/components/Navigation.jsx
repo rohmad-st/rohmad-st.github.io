@@ -25,6 +25,11 @@ const HeaderListItemLink = styled.a`
   color: #27b69d;
   transition: .3s all ease-in-out;
   text-decoration: none;
+
+  @media only screen and (max-width: 414px) {
+    font-size: 12px;
+    padding: 5px 7px;
+  }
 `
 
 const refNavbar = React.createRef()

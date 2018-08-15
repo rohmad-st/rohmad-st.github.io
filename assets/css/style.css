@@ -62,3 +62,10 @@ body {
     left: 3%;
   }
 }
+@media only screen and (max-width: 414px) {
+  .in--first:before,
+  .in--left:before,
+  .in--right:before {
+    display: none;
+  }
+}

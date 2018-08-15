@@ -8,6 +8,10 @@ const Content = styled.div`
   background-color: #f3f5f7;
   padding: 25px;
   margin: 0;
+
+  @media only screen and (max-width: 414px) {
+    padding: 25px 0;
+  }
 `
 const ContentList = styled.ul`
   width: 100%;
@@ -18,6 +22,10 @@ const ContentList = styled.ul`
     width: 97%;
     margin-top: 0;
     margin-left: 3%;
+  }
+  @media only screen and (max-width: 414px) {
+    width: 100%;
+    margin: 0;
   }
   &:after {
     position: absolute;
@@ -32,6 +40,9 @@ const ContentList = styled.ul`
 
     @media only screen and (max-width: 768px) {
       left: 3%;
+    }
+    @media only screen and (max-width: 414px) {
+      display: none;
     }
   }
 `
@@ -66,11 +77,12 @@ const ContentListItemSection = styled.li`
     font-size: 12px;
   }
   @media only screen and (max-width: 414px) {
-    left: 4.3%;
+    display: none;
+    /* left: 4.3%;
     padding: 1px !important;
     font-size: 11px;
     height: 18px;
-    width: 30px !important;
+    width: 30px !important; */
   }
 
 `

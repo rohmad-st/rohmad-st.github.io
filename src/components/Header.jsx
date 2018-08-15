@@ -30,6 +30,7 @@ const Text = styled.p`
   padding: 5px;
   margin: 10px 0;
   color: #fafafa;
+  text-align: center;
 
   @media only screen and (max-width: 768px) {
     padding: 5px 25px;

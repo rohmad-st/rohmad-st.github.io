@@ -33,6 +33,16 @@ const ContentListItem = styled.li`
     width: 100%;
     margin-left: 0;
   }
+  @media only screen and (max-width: 414px) {
+    width: 100%;
+    margin: 0;
+    border: none;
+    /* border-bottom: 1px dashed #bdc3c7; */
+
+    &:nth-child(odd) {
+      background-color: #ecf0f1;
+    }
+  }
 `
 ContentListItem.defaultProps = {
   custom: {
@@ -58,11 +68,16 @@ const ContentListItemImage = styled.img`
 `
 const ContentListItemTitle = styled.h4`
   color: #ecf0f1;
-  background: #34495e;
+  background-color: #34495e;
   padding: 8px 15px;
   margin: 0;
   overflow: hidden;
   letter-spacing: 0.1rem;
+
+  @media only screen and (max-width: 414px) {
+    background: none;
+    color: #34495e;
+  }
 `
 const ContentListItemDescription = styled.p`
   padding: 2px 15px;
@@ -76,7 +91,7 @@ const ContentListItemTechologyBagde = styled.span`
   color: #333;
   background: #fefefe;
   padding: 3px 6px;
-  margin: 0 4px;
+  margin: 4px;
 
   &:nth-child(1) {
     margin-left: 0;
