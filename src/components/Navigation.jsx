@@ -33,7 +33,9 @@ export class Navigation extends React.Component {
           {
             content.years.map((year, index) => (
               <HeaderListItem key={index}>
-                <HeaderListItemLink href='#'>{year}</HeaderListItemLink>
+                <HeaderListItemLink href={`#${year}`}>
+                  {year}
+                </HeaderListItemLink>
               </HeaderListItem>
             ))
           }

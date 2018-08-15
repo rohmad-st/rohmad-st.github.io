@@ -32,7 +32,7 @@ export const project = {
             from: 2017,
             to: 2018
           },
-          side: 'right-float',
+          side: 'left',
           image: 'https://res.cloudinary.com/rohmadst/image/upload/v1528022183/projects/qiscus_omnichannel.png',
           title: 'QISCUS OMNICHANNEL',
           summary: 'ini description of the application',
@@ -46,7 +46,7 @@ export const project = {
             from: 2017,
             to: 2018
           },
-          side: 'left',
+          side: 'right',
           image: 'https://res.cloudinary.com/rohmadst/image/upload/v1528021294/projects/qiscus_landing_page.png',
           title: 'QISCUS LANDING PAGE',
           summary: 'ini description of the application',
@@ -88,7 +88,7 @@ export const project = {
             from: 2017,
             to: 2018
           },
-          side: 'right-float',
+          side: 'left',
           image: 'https://res.cloudinary.com/rohmadst/image/upload/v1534267280/projects/sample-app-sdk-ios.png',
           title: 'QISCUS SDK IOS SAMPLE',
           summary: 'ini description of the application',
@@ -102,7 +102,7 @@ export const project = {
             from: 2017,
             to: 2018
           },
-          side: 'left',
+          side: 'right',
           image: 'https://res.cloudinary.com/rohmadst/image/upload/v1534267553/projects/cloudsolutely.png',
           title: 'CLOUDSOLUTELY',
           summary: 'ini description of the application',
@@ -149,7 +149,7 @@ export const project = {
             from: 2017,
             to: 2018
           },
-          side: 'right-float',
+          side: 'left',
           image: 'https://res.cloudinary.com/rohmadst/image/upload/v1503236957/projects/project_kiwariios3.png',
           title: 'KIWARI IOS CHAT',
           summary: 'ini description of the application',
@@ -163,7 +163,7 @@ export const project = {
             from: 2017,
             to: 2018
           },
-          side: 'left',
+          side: 'right',
           image: './static/images/kiwari.png',
           title: 'SIEM AD - SISTEM MANAJEMEN ANGKATAN DARAT',
           summary: 'ini description of the application',
@@ -182,7 +182,7 @@ export const project = {
             from: 2017,
             to: 2018
           },
-          side: 'right',
+          side: 'left',
           image: 'https://res.cloudinary.com/rohmadst/image/upload/v1503203188/projects/projects_ciayo_nnbf2d.jpg',
           title: 'CIAYO - VIRTUAL SOCIAL MEDIA',
           summary: 'ini description of the application',
@@ -243,7 +243,7 @@ export const project = {
             from: 2017,
             to: 2018
           },
-          side: 'right',
+          side: 'left',
           image: 'https://res.cloudinary.com/rohmadst/image/upload/v1503205350/projects/fitur-cetak-enotaris-3-lg.png',
           title: 'TOOL MS. ADDINS - ENOTARIS.COM',
           summary: 'ini description of the application',
@@ -262,7 +262,7 @@ export const project = {
             from: 2017,
             to: 2018
           },
-          side: 'left',
+          side: 'right',
           image: 'https://res.cloudinary.com/rohmadst/image/upload/v1503203189/projects/project_enotaris_pdgtgx.jpg',
           title: 'ENOTARIS.COM',
           summary: 'ini description of the application',
@@ -276,7 +276,7 @@ export const project = {
             from: 2017,
             to: 2018
           },
-          side: 'right',
+          side: 'left',
           image: './static/images/kiwari.png',
           title: 'TOOL CRAWLER FOR ONLINE SHOPPING',
           summary: 'ini description of the application',
