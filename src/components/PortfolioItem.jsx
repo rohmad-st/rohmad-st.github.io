@@ -35,13 +35,9 @@ const ContentListItem = styled.li`
   }
   @media only screen and (max-width: 414px) {
     width: 100%;
-    margin: 0;
-    border: none;
-    /* border-bottom: 1px dashed #bdc3c7; */
-
-    &:nth-child(odd) {
-      background-color: #ecf0f1;
-    }
+    margin: 0 0 22px;
+    border: 1px solid #e7e8e9;
+    background-color: #fafafa;
   }
 `
 ContentListItem.defaultProps = {
@@ -130,7 +126,7 @@ const PortfolioItem = ({ item, index }) => {
   const inFirst = (index === 0) ? 'in--first' : ''
   const inLeftOrRight = (item.side === 'left') ? 'in--left' : 'in--right'
   const globalClass = [inFirst, inLeftOrRight].join(' ')
-  
+
   return (
     <ContentListItem
       className={globalClass}

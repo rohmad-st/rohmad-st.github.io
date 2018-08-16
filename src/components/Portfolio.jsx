@@ -10,7 +10,7 @@ const Content = styled.div`
   margin: 0;
 
   @media only screen and (max-width: 414px) {
-    padding: 25px 0;
+    padding: 25px 10px;
   }
 `
 const ContentList = styled.ul`
@@ -48,6 +48,10 @@ const ContentList = styled.ul`
 `
 const ContentListGroup = styled.div`
   padding-top: 70px;
+  
+  @media only screen and (max-width: 414px) {
+    padding-top: 22px;
+  }
 `
 const ContentListItemSection = styled.li`
   display: flex;
@@ -77,12 +81,12 @@ const ContentListItemSection = styled.li`
     font-size: 12px;
   }
   @media only screen and (max-width: 414px) {
-    display: none;
-    /* left: 4.3%;
-    padding: 1px !important;
-    font-size: 11px;
-    height: 18px;
-    width: 30px !important; */
+    margin-top: -24px !important;
+    left: 50%;
+    color: #999999;
+    background: none;
+    font-weight: 600;
+    font-size: 15px;
   }
 
 `
