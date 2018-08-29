@@ -39,7 +39,18 @@ body {
 .in--fixed > ul > li > a {
   color: #fafafa;
 }
-
+.in--max {
+  transition: .3s all ease-in-out;
+  animation: swingUp .3s ease-in-out;
+}
+@keyframes swingUp {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 @keyframes flicker {
   0% {
     background-color: #2ecc71;
@@ -67,5 +78,9 @@ body {
   .in--left:before,
   .in--right:before {
     display: none;
+  }
+  .in--max {
+    width: 100% !important;
+    height: 100% !important;
   }
 }

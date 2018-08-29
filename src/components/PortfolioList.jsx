@@ -25,6 +25,7 @@ const ContentDetail = styled.div`
 
   @media only screen and (max-width: 414px) {
     width: 100%;
+    height: 10%;
   }
 `
 const ContentDetailItem = styled.div`
@@ -61,8 +62,8 @@ const ContentDetailProfile = ContentDetailItem.extend`
   text-align: center;
 
   @media only screen and (max-width: 414px) {
-    height: 10%;
     width: 100%;
+    height: 100%;
   }
 `
 const ContentDetailProject = ContentDetailItem.extend`
@@ -86,6 +87,10 @@ const ContentDetailProjectText = ContentDetailItemText.extend`
   margin-bottom: 2px;
   line-height: 20px;
   text-align: justify;
+
+  &:last-child {
+    margin-bottom: 30px;
+  }
 `
 const ContentDetailProjectBagde = styled.span`
   font-size: 13px;
@@ -108,10 +113,11 @@ const ContentProject = styled.div`
   z-index: 4;
   margin-left: auto;
   width: 60%;
-
+  
   @media only screen and (max-width: 414px) {
     width: 100%;
-    margin-top: 22%;
+    margin-top: 20%;
+    /* z-index: 6; */
   }
 `
 const ContentProjectItem = styled.div`
@@ -233,7 +239,7 @@ export default class Portfolio extends React.Component {
   render () {
     return (
       <Content>
-        <ContentDetail>
+        <ContentDetail className={(this.state.mode === 1) ? 'in--max' : ''}>
           {
             (this.state.mode === 0) &&
               <ContentDetailProfile>
@@ -265,10 +271,11 @@ export default class Portfolio extends React.Component {
                     <ContentListItem
                       key={key}
                       id={portfolio.year}
-                      onClick={() => {
-                        console.log('content clicked!')
-                        this.showDetailProject(work)
-                      }}
+                      onClick={ () => {
+                          console.log('clickable is work.')
+                          this.showDetailProject(work)
+                        }
+                      }
                     >
                       <ContentListItemImage
                         alt="image"
