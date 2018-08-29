@@ -163,11 +163,35 @@ const ContentListItem = styled.li`
     }
   }
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 823px) {
     width: 39%;
   }
 
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 768px) {
+    width: 38%;
+  }
+
+  @media only screen and (max-width: 698px) {
+    width: 37%;
+  }
+
+  @media only screen and (max-width: 649px) {
+    width: 36%;
+  }
+  
+  @media only screen and (max-width: 607px) {
+    width: 35%;
+  }
+
+  @media only screen and (max-width: 568px) {
+    width: 34%;
+  }
+  
+  @media only screen and (max-width: 539px) {
+    width: 33%;
+  }
+
+  @media only screen and (max-width: 510px) {
     width: 100%;
     height: auto;
     min-height: 250px;
