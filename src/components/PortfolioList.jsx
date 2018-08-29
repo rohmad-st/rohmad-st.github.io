@@ -11,37 +11,59 @@ const Content = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
-  /* @media only screen and (max-width: 414px) {
-    padding: 25px 10px;
-  } */
 `
 const ContentDetail = styled.div`
   display: flex;
   position: fixed;
   height: 100%;
   width: 40%;
-  background-color: none;
+  background-color: transparent;
   margin: 0;
   left: 0;
   top: 0;
   z-index: 5;
+
+  @media only screen and (max-width: 414px) {
+    width: 100%;
+  }
 `
 const ContentDetailItem = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
   background-color: #fafafa;
+  height: 100%;
   border: 1px solid #e6e6e6;
   padding: 10px 15px;
   margin: 0;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+`
+const ContentDetailButtonClose = styled.button`
+  position: absolute;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  color: #ecf0f1;
+  background: rgba(51, 51, 51, 0.45);
+  padding: 10px 15px;
+  border: none;
+  margin: 0;
+  text-align: center;
+  margin-left: auto;
+  top: 0;
+  right: 0;
+  cursor: pointer;
 `
 const ContentDetailProfile = ContentDetailItem.extend`
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+
+  @media only screen and (max-width: 414px) {
+    height: 10%;
+    width: 100%;
+  }
 `
 const ContentDetailProject = ContentDetailItem.extend`
   justify-content: flex-start;
@@ -69,7 +91,7 @@ const ContentDetailProjectBagde = styled.span`
   font-size: 13px;
   display: inline-block;
   color: #333;
-  background: #fefefe;
+  background: #e6e6e6;
   padding: 3px 6px;
   margin: 4px;
 
@@ -81,14 +103,19 @@ const ContentDetailProjectBagde = styled.span`
 const ContentProject = styled.div`
   display: flex;
   position: relative;
-  background-color: none;
+  background-color: transparent;
   margin: 0;
   z-index: 4;
   margin-left: auto;
   width: 60%;
+
+  @media only screen and (max-width: 414px) {
+    width: 100%;
+    margin-top: 22%;
+  }
 `
 const ContentProjectItem = styled.div`
-  background-color: none;
+  background-color: transparent;
   border: none;
   padding: 0 18px 10px;
   width: 100%;
@@ -129,6 +156,17 @@ const ContentListItem = styled.li`
       opacity: 1;
     }
   }
+
+  @media only screen and (max-width: 768px) {
+    width: 39%;
+  }
+
+  @media only screen and (max-width: 414px) {
+    width: 100%;
+    height: auto;
+    min-height: 250px;
+    margin: 12px 0;
+  }
 `
 const ContentListItemTitle = styled.h4`
   font-weight: 400;
@@ -137,6 +175,14 @@ const ContentListItemTitle = styled.h4`
   width: 100%;
   margin: 10px 13px 5px;
   line-height: 20px;
+
+  @media only screen and (max-width: 414px) {
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
 `
 const ContentListItemImage = styled.img`
   width: 100%;
@@ -179,6 +225,11 @@ export default class Portfolio extends React.Component {
     console.log('show detail project!', { mode: DETAIL_PROJECT, detail: item })
   }
 
+  closeDetailProject () {
+    this.setState({ mode: DETAIL_PROFILE, detail: profile })
+    console.log('close detail project', this.state)
+  }
+
   render () {
     return (
       <Content>
@@ -192,6 +243,7 @@ export default class Portfolio extends React.Component {
           {
             (this.state.mode === 1) &&
               <ContentDetailProject>
+                <ContentDetailButtonClose onClick={() => this.closeDetailProject() }>X</ContentDetailButtonClose>
                 <ContentDetailProjectImage src={this.state.detail.image} alt={`${this.state.detail.title} image`} />
                 <ContentDetailProjectTitle dangerouslySetInnerHTML={{__html: this.state.detail.title}} />
                 <ContentDetailProjectText dangerouslySetInnerHTML={{__html: this.state.detail.summary}} />
@@ -213,9 +265,15 @@ export default class Portfolio extends React.Component {
                     <ContentListItem
                       key={key}
                       id={portfolio.year}
-                      onClick={() => this.showDetailProject(work)}
+                      onClick={() => {
+                        console.log('content clicked!')
+                        this.showDetailProject(work)
+                      }}
                     >
-                      <ContentListItemImage src={work.image} alt="image"/>
+                      <ContentListItemImage
+                        alt="image"
+                        src={work.image}
+                      />
                       <ContentListItemTitle>{work.title}</ContentListItemTitle>
                     </ContentListItem>
                   )
