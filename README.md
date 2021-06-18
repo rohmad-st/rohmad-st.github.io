@@ -1,7 +1,8 @@
 # My Portfolio
 
 ## Introduction
-This is my portfolio online 
+
+This is my portfolio online
 
 ## Usage
 
