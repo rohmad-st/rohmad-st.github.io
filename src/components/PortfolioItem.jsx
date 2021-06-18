@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 // Independent styled component
 const ContentButton = styled.a`
@@ -12,7 +12,7 @@ const ContentButton = styled.a`
   font-weight: 400;
   border: none;
   text-decoration: none;
-`
+`;
 
 const ContentListItem = styled.li`
   border: 1px dashed #bdc3c7;
@@ -21,13 +21,15 @@ const ContentListItem = styled.li`
   list-style: none;
   width: 45%;
   cursor: pointer;
-  transition: .3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
   margin-left: ${props => props.custom.marginLeft};
   float: ${props => props.custom.float};
-  
-  &:hover, &:focus, &:active {
+
+  &:hover,
+  &:focus,
+  &:active {
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
-    transition: .3s all ease-in;
+    transition: 0.3s all ease-in;
   }
   @media only screen and (max-width: 768px) {
     width: 100%;
@@ -39,13 +41,13 @@ const ContentListItem = styled.li`
     border: 1px solid #e7e8e9;
     background-color: #fafafa;
   }
-`
+`;
 ContentListItem.defaultProps = {
   custom: {
     marginLeft: 0,
     float: 'none',
-  }
-}
+  },
+};
 
 const ContentListItemThumbnail = styled.div`
   width: 100%;
@@ -54,14 +56,14 @@ const ContentListItemThumbnail = styled.div`
   margin: 0;
   overflow: hidden;
   overflow-y: auto;
-  transition: .3s all ease-in-out;
-`
+  transition: 0.3s all ease-in-out;
+`;
 const ContentListItemImage = styled.img`
   width: 100%;
   padding: 0;
   margin: 0;
-  transition: .3s all ease-in-out;
-`
+  transition: 0.3s all ease-in-out;
+`;
 const ContentListItemTitle = styled.h4`
   color: #ecf0f1;
   background-color: #34495e;
@@ -74,13 +76,13 @@ const ContentListItemTitle = styled.h4`
     background: none;
     color: #34495e;
   }
-`
+`;
 const ContentListItemDescription = styled.p`
   padding: 2px 15px;
-`
+`;
 const ContentListItemTechology = ContentListItemDescription.extend`
   /*  */
-`
+`;
 const ContentListItemTechologyBagde = styled.span`
   font-size: 13px;
   display: inline-block;
@@ -93,13 +95,13 @@ const ContentListItemTechologyBagde = styled.span`
     margin-left: 0;
     margin-right: 2px;
   }
-`
+`;
 const ContentListItemSourceLink = ContentButton.extend`
   color: #fafafa;
   background-color: #27b69d;
   margin-left: 15px;
   margin-bottom: 20px;
-`
+`;
 const ContentListItemDate = styled.span`
   position: absolute;
   display: inline-block;
@@ -110,28 +112,25 @@ const ContentListItemDate = styled.span`
   padding: 8px 15px;
   margin-top: 0;
   overflow: hidden;
-`
+`;
 
-const getCustomPosition = (side) => {
-  const marginLeft = (side === 'right' || side === 'right-float') ? 'auto' : 0
-  const float = (side === 'right-float') ? 'right' : 'none'
+const getCustomPosition = side => {
+  const marginLeft = side === 'right' || side === 'right-float' ? 'auto' : 0;
+  const float = side === 'right-float' ? 'right' : 'none';
 
   return {
     marginLeft,
-    float
-  }
-}
+    float,
+  };
+};
 
 const PortfolioItem = ({ item, index }) => {
-  const inFirst = (index === 0) ? 'in--first' : ''
-  const inLeftOrRight = (item.side === 'left') ? 'in--left' : 'in--right'
-  const globalClass = [inFirst, inLeftOrRight].join(' ')
+  const inFirst = index === 0 ? 'in--first' : '';
+  const inLeftOrRight = item.side === 'left' ? 'in--left' : 'in--right';
+  const globalClass = [inFirst, inLeftOrRight].join(' ');
 
   return (
-    <ContentListItem
-      className={globalClass}
-      custom={getCustomPosition(item.side)}
-      >
+    <ContentListItem className={globalClass} custom={getCustomPosition(item.side)}>
       <ContentListItemDate key={item.date.toString()}>
         {`Created on: ${item.date.from} - ${item.date.to}`}
       </ContentListItemDate>
@@ -141,22 +140,20 @@ const PortfolioItem = ({ item, index }) => {
       <ContentListItemTitle>{item.title}</ContentListItemTitle>
       <ContentListItemDescription>{item.summary}</ContentListItemDescription>
       <ContentListItemTechology>
-        {item.technologies.map((tech, index) =>
+        {item.technologies.map((tech, index) => (
           <ContentListItemTechologyBagde key={index}>{tech}</ContentListItemTechologyBagde>
-        )}
+        ))}
       </ContentListItemTechology>
-      <ContentListItemSourceLink
-        href={item.url}
-        target="_blank">
+      <ContentListItemSourceLink href={item.url} target="_blank">
         Open app site
       </ContentListItemSourceLink>
     </ContentListItem>
-  )
-}
+  );
+};
 
 PortfolioItem.propTypes = {
   item: PropTypes.object.isRequired,
-  index: PropTypes.number
-}
+  index: PropTypes.number,
+};
 
-export default PortfolioItem
+export default PortfolioItem;

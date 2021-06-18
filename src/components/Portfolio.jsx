@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
-import PortfolioItem from './PortfolioItem'
-import { project } from '../data'
+import React from 'react';
+import styled from 'styled-components';
+import PortfolioItem from './PortfolioItem';
+import { project } from '../data';
 
 const Content = styled.div`
   position: relative;
@@ -12,7 +12,7 @@ const Content = styled.div`
   @media only screen and (max-width: 414px) {
     padding: 25px 10px;
   }
-`
+`;
 const ContentList = styled.ul`
   width: 100%;
   padding: 0;
@@ -45,14 +45,14 @@ const ContentList = styled.ul`
       display: none;
     }
   }
-`
+`;
 const ContentListGroup = styled.div`
   padding-top: 70px;
-  
+
   @media only screen and (max-width: 414px) {
     padding-top: 22px;
   }
-`
+`;
 const ContentListItemSection = styled.li`
   display: flex;
   justify-content: center;
@@ -73,7 +73,7 @@ const ContentListItemSection = styled.li`
   margin-top: 34px !important;
   left: 50%;
   cursor: default !important;
-  
+
   @media only screen and (max-width: 768px) {
     left: 3%;
     border-radius: 0 !important;
@@ -88,33 +88,22 @@ const ContentListItemSection = styled.li`
     font-weight: 600;
     font-size: 15px;
   }
-
-`
+`;
 export class Portfolio extends React.Component {
-  render () {
+  render() {
     return (
       <Content>
         <ContentList>
-          {
-            project.portfolios.map((portfolio, index) =>
-              <ContentListGroup
-                key={index}
-                id={portfolio.year}
-                className={(index === 0) ? 'in--first__init' : ''}
-              >
-                <ContentListItemSection key={portfolio.toString()}>
-                  {portfolio.year}
-                </ContentListItemSection>
-                {
-                  portfolio.works.map((work, key) =>
-                    <PortfolioItem key={key} item={work} index={key}/>
-                  )
-                }
-              </ContentListGroup>
-            )
-          }
+          {project.portfolios.map((portfolio, index) => (
+            <ContentListGroup key={index} id={portfolio.year} className={index === 0 ? 'in--first__init' : ''}>
+              <ContentListItemSection key={portfolio.toString()}>{portfolio.year}</ContentListItemSection>
+              {portfolio.works.map((work, key) => (
+                <PortfolioItem key={key} item={work} index={key} />
+              ))}
+            </ContentListGroup>
+          ))}
         </ContentList>
       </Content>
-    )
+    );
   }
 }
