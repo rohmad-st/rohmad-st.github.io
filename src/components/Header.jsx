@@ -25,6 +25,7 @@ const Avatar = styled.img`
   width: 135px;
   height: 135px;
   border-radius: 50%;
+  background-color: #dedede;
 `;
 const Text = styled.p`
   font-size: 18px;
@@ -46,8 +47,9 @@ const refHeader = React.createRef();
 const refNavbar = React.createRef();
 
 export class Header extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.render = this.render.bind(this);
   }
 
   handleScroll() {
@@ -83,7 +85,7 @@ export class Header extends React.Component {
             <Text dangerouslySetInnerHTML={{ __html: profile.summary }} />
           </HeaderInfo>
         </HeaderContent>
-        <HeaderNavigation ref={refNavbar} />
+        <HeaderNavigation ref={refNavbar} {...this.props} />
       </HeaderMain>
     );
   }

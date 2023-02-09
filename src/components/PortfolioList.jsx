@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { profile, project } from '../data';
+import { profile, projects } from '../data';
 
 const Content = styled.div`
   position: relative;
@@ -236,7 +236,7 @@ const ContentDetailProjectImage = ContentListItemImage.extend`
 
 const [DETAIL_PROFILE, DETAIL_PROJECT] = [0, 1];
 
-export default class Portfolio extends React.Component {
+export class PortfolioGrid extends React.Component {
   constructor() {
     super();
 
@@ -252,12 +252,10 @@ export default class Portfolio extends React.Component {
 
   showDetailProject(item) {
     this.setState({ mode: DETAIL_PROJECT, detail: item });
-    console.log('show detail project!', { mode: DETAIL_PROJECT, detail: item });
   }
 
   closeDetailProject() {
     this.setState({ mode: DETAIL_PROFILE, detail: profile });
-    console.log('close detail project', this.state);
   }
 
   render() {
@@ -291,15 +289,12 @@ export default class Portfolio extends React.Component {
         <ContentProject>
           <ContentProjectItem>
             <ContentList>
-              {project.portfolios.map((portfolio, index) =>
+              {projects.map((portfolio, index) =>
                 portfolio.works.map((work, key) => (
                   <ContentListItem
-                    key={key}
+                    key={`${index}.${key}`}
                     id={portfolio.year}
-                    onClick={() => {
-                      console.log('clickable is work.');
-                      this.showDetailProject(work);
-                    }}
+                    onClick={() => this.showDetailProject(work)}
                   >
                     <ContentListItemImage alt="image" src={work.image} />
                     <ContentListItemTitle>{work.title}</ContentListItemTitle>

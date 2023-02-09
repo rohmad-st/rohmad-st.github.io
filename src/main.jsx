@@ -1,13 +1,10 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-// import { Header } from './components/Header'
-// import { Portfolio } from './components/Portfolio'
-import Portfolio from './components/PortfolioList'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Homepage from './components/Homepage';
 
 ReactDOM.render(
   <div>
-    {/* <Header /> */}
-    <Portfolio />
+    <Homepage />
   </div>,
-  document.getElementById('root')
-)
+  document.getElementById('root'),
+);

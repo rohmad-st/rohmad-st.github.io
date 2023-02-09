@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PortfolioItem from './PortfolioItem';
-import { project } from '../data';
+import { projects } from '../data';
 
 const Content = styled.div`
   position: relative;
@@ -89,16 +89,34 @@ const ContentListItemSection = styled.li`
     font-size: 15px;
   }
 `;
+
 export class Portfolio extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      selectedId: null,
+    };
+  }
+
   render() {
     return (
       <Content>
         <ContentList>
-          {project.portfolios.map((portfolio, index) => (
+          {projects.map((portfolio, index) => (
             <ContentListGroup key={index} id={portfolio.year} className={index === 0 ? 'in--first__init' : ''}>
               <ContentListItemSection key={portfolio.toString()}>{portfolio.year}</ContentListItemSection>
               {portfolio.works.map((work, key) => (
-                <PortfolioItem key={key} item={work} index={key} />
+                <PortfolioItem
+                  key={key}
+                  item={work}
+                  index={key}
+                  onSelect={() => {
+                    const selectedId = this.state.selectedId === work.id ? null : work.id;
+                    this.setState({ selectedId });
+                  }}
+                  isDetail={this.state.selectedId === work.id}
+                />
               ))}
             </ContentListGroup>
           ))}

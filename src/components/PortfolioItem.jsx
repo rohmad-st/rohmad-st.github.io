@@ -20,7 +20,7 @@ const ContentListItem = styled.li`
   margin: 0 0 28px;
   list-style: none;
   width: 45%;
-  cursor: pointer;
+  cursor: ${props => (props.clickable ? 'pointer' : 'default')};
   transition: 0.3s all ease-in-out;
   margin-left: ${props => props.custom.marginLeft};
   float: ${props => props.custom.float};
@@ -30,6 +30,7 @@ const ContentListItem = styled.li`
   &:active {
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
     transition: 0.3s all ease-in;
+    border-style: solid;
   }
   @media only screen and (max-width: 768px) {
     width: 100%;
@@ -51,11 +52,10 @@ ContentListItem.defaultProps = {
 
 const ContentListItemThumbnail = styled.div`
   width: 100%;
-  height: 200px;
+  height: ${props => (props.isDetail ? '35px' : '200px')};
   padding: 0;
   margin: 0;
   overflow: hidden;
-  overflow-y: auto;
   transition: 0.3s all ease-in-out;
 `;
 const ContentListItemImage = styled.img`
@@ -78,7 +78,48 @@ const ContentListItemTitle = styled.h4`
   }
 `;
 const ContentListItemDescription = styled.p`
+  font-size: 14px;
+  font-weight: 400;
   padding: 2px 15px;
+  margin-bottom: 0;
+`;
+const ContentListItemDescriptionDetail = styled.div`
+  font-size: 14px;
+  font-weight: 400;
+  padding: 2px 15px;
+  margin-bottom: 0;
+
+  h4 {
+    margin: 14px 0 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    margin: 0;
+  }
+
+  ul,
+  ol {
+    margin: 0;
+    padding-left: 4px;
+  }
+
+  li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li > span {
+    padding-right: 8px;
+    color: #6a6a6a;
+    font-size: 12px;
+  }
 `;
 const ContentListItemTechology = ContentListItemDescription.extend`
   /*  */
@@ -94,6 +135,21 @@ const ContentListItemTechologyBagde = styled.span`
   &:nth-child(1) {
     margin-left: 0;
     margin-right: 2px;
+  }
+`;
+const ContentListItemSeeMore = styled.a`
+  font-size: 14px;
+  font-weight: 400;
+  display: inline-block;
+  color: #34495e;
+  padding: 0;
+  margin: 0 0 0 14px;
+  text-decoration: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: underline;
   }
 `;
 const ContentListItemSourceLink = ContentButton.extend`
@@ -124,29 +180,81 @@ const getCustomPosition = side => {
   };
 };
 
-const PortfolioItem = ({ item, index }) => {
+const PortfolioItem = ({ isDetail, item, index, onSelect }) => {
   const inFirst = index === 0 ? 'in--first' : '';
-  const inLeftOrRight = item.side === 'left' ? 'in--left' : 'in--right';
+  const inLeftOrRight = index % 2 === 0 ? 'in--right' : 'in--left';
+  const leftOrRight = index % 2 === 0 ? 'right' : 'left';
   const globalClass = [inFirst, inLeftOrRight].join(' ');
 
+  function handleSelect() {
+    if (item.description && onSelect) onSelect();
+  }
+
+  function getCreatedBy() {
+    const createdBy = 'Dibuat pada:';
+    const { from, to } = item.date;
+    if (from === to) return `${createdBy} ${from}`;
+    return `${createdBy} ${from} - ${to}`;
+  }
+
   return (
-    <ContentListItem className={globalClass} custom={getCustomPosition(item.side)}>
-      <ContentListItemDate key={item.date.toString()}>
-        {`Created on: ${item.date.from} - ${item.date.to}`}
-      </ContentListItemDate>
-      <ContentListItemThumbnail>
+    <ContentListItem
+      className={globalClass}
+      custom={getCustomPosition(leftOrRight)}
+      onClick={handleSelect}
+      clickable={!!item.description}
+      title={!!item.description && 'Klik untuk lihat selengkapnya!'}
+    >
+      <ContentListItemDate key={item.date.toString()}>{getCreatedBy()}</ContentListItemDate>
+      <ContentListItemThumbnail isDetail={isDetail}>
         <ContentListItemImage src={item.image}></ContentListItemImage>
       </ContentListItemThumbnail>
       <ContentListItemTitle>{item.title}</ContentListItemTitle>
-      <ContentListItemDescription>{item.summary}</ContentListItemDescription>
+      {!isDetail ? (
+        <ContentListItemDescription>{item.summary}</ContentListItemDescription>
+      ) : (
+        <ContentListItemDescriptionDetail>
+          <h4>Sekilas Info</h4>
+          <p>{item.summary}</p>
+
+          {item.description && (
+            <div>
+              <h4>Tentang</h4>
+              <p>{item.description}</p>
+            </div>
+          )}
+
+          {item.daily_routines && (
+            <div>
+              <h4>Rutinitas Di Project</h4>
+              <p>
+                <ul>
+                  {item.daily_routines.map((activity, k) => (
+                    <li key={k}>
+                      <span>●</span> {activity}
+                    </li>
+                  ))}
+                </ul>
+              </p>
+            </div>
+          )}
+        </ContentListItemDescriptionDetail>
+      )}
+      {item.description && (
+        <ContentListItemSeeMore href="javascript:void(0)" onClick={handleSelect}>
+          {isDetail ? 'Lihat sedikit...' : 'Lihat selengkapnya...'}
+        </ContentListItemSeeMore>
+      )}
       <ContentListItemTechology>
         {item.technologies.map((tech, index) => (
           <ContentListItemTechologyBagde key={index}>{tech}</ContentListItemTechologyBagde>
         ))}
       </ContentListItemTechology>
-      <ContentListItemSourceLink href={item.url} target="_blank">
-        Open app site
-      </ContentListItemSourceLink>
+      {item.url && (
+        <ContentListItemSourceLink href={item.url} target="_blank">
+          Kunjungi situs
+        </ContentListItemSourceLink>
+      )}
     </ContentListItem>
   );
 };
