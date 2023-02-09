@@ -10,9 +10,9 @@ export default [
         },
         image: 'https://res.cloudinary.com/rohmadst/image/upload/v1675950598/projects/content-hub-konten.png',
         title: 'Content Hub',
-        summary: 'Content Hub merupakan Platform yang ditujukan untuk Promoter & Creator dari Tiptip.co',
+        summary: 'Content Hub merupakan Platform yang ditujukan untuk Creator & Promoter dari Tiptip.co',
         description:
-          'Content Hub masih bagian dari Platform Tiptip.co, ini menggunakan single login dengan Tiptip.co, sehingga user yang sudah mempunyai akun di Tiptip.co dapat menggunakan platform ini dengan akun yang sama, tanpa perlu registrasi ulang. Disini saya bekerja sebagai Frontend Developer yang termasuk dalam POD UDP (User, Discovery, Platform) dimana mostly pekerjaan saya meliputi Authentication, Profile, dan Core.',
+          'Content Hub masih bagian dari Platform Tiptip.co, yang menggunakan single login bersama dengan Tiptip.co, sehingga user yang sudah mempunyai akun di Tiptip.co dapat menggunakan platform ini dengan akun yang sama, tanpa perlu registrasi ulang. Disini saya bekerja sebagai Frontend Developer yang termasuk dalam POD UDP (User, Discovery & Platform) dimana mostly pekerjaan saya meliputi Authentication, Profile, Core, dsb.',
         daily_routines: [
           'Mengerjakan fitur baru yang relate dengan POD UDP',
           'Implementasi Unit Test',
@@ -174,9 +174,9 @@ export default [
         image: 'https://res.cloudinary.com/rohmadst/image/upload/v1675951044/projects/syalog-web.png',
         title: 'Syalog',
         summary:
-          'Syalog adalah aplikasi yang menghubungka shipper dan Perusahaan Logistic terintegrasi secara online dan realtime.',
+          'Syalog adalah aplikasi yang menghubungkan shipper dengan Perusahaan Logistic, dan terintegrasi secara online secara realtime.',
         description:
-          'Di project Syalog ini, saya bersama beberapa orang teman berkolaborasi sebagai outsources yang mempunyai peran dan tugas untuk mencoba menghadirkan versi aplikasi yang lebih baik daripada sebelumnya dari sisi performa, dan technology. Di Web Platform kami menggunakan Next.js',
+          'Di project Syalog ini, saya bersama beberapa orang teman berkolaborasi sebagai outsources dengan dibantu beberapa tim internal dari Syalog. Kami mempunyai peran dan tugas untuk mencoba menghadirkan versi aplikasi yang lebih baik daripada sebelumnya dari sisi performa, dan technology. Di Web Platform kami menggunakan Next.js',
         technologies: ['Next.js', 'Typescript', 'Storybook', 'CSS 3', 'HTML 5'],
         url: 'https://www.syalog.com',
       },
@@ -200,14 +200,14 @@ export default [
           from: 2018,
           to: 2021,
         },
-        image: 'https://res.cloudinary.com/rohmadst/image/upload/v1528022531/projects/qiscus_sdkweb.png',
-        title: 'Platform Kata.ai',
+        image: 'https://res.cloudinary.com/rohmadst/image/upload/v1675981758/projects/platfform-kata.png',
+        title: 'Kata Platform',
         summary:
-          'Platform Kata.ai merupakan aplikasi utama dari Kata.ai, aplikasi ini berfungsi untuk melakukan training dan manajemen chatbot.',
+          'Kata Platform adalah sebuah tool untuk membangun sebuah produk percakapan AI dari awal hinggal akhir.',
         description:
           'Di project ini saya sebagai Frontend Engineer, bertugas untuk bersama tim membuat fitur baru, melakukan bug fix dan senantiasa melakukan improvement system',
         technologies: ['React.js', 'Typescript', 'Storybook', 'CSS 3', 'HTML 5'],
-        url: 'https://qiscus.com/documentation/web/latest',
+        url: 'https://kata.ai/products/kata-platform',
       },
     ],
   },
@@ -223,7 +223,7 @@ export default [
         image: 'https://res.cloudinary.com/rohmadst/image/upload/v1675952423/projects/aksara-banner.svg',
         title: 'Aksara Design System',
         summary:
-          'Aksara Design System merupakan UI components untuk keperluan project internal Kata.ai. Namun juga bersifat open source, sehingga siapapun dapat menggunakan.',
+          'Aksara Design System merupakan UI Components yang dibangun untuk penggunaan keperluan project internal Kata.ai. Namun juga bersifat open source, sehingga siapapun dapat menggunakannya.',
         description:
           'Sebagai Frontend Engineer, di project ini saya membantu tim FE untuk menambahkan UI Component baru maupun mengubah dan meningkatkan UI Component yang sudah ada.',
         technologies: ['React.js', 'Storybook', 'Typescript', 'Javascript'],
@@ -243,7 +243,7 @@ export default [
         image: 'https://res.cloudinary.com/rohmadst/image/upload/v1538243232/projects/No_image_3x4.svg',
         title: 'Sawala',
         summary:
-          'Sawala adalah sebuah wrapper Qiscus Chat SDK yang ditulis di framework React.js, untuk kebutuhan internal project di Kata.ai',
+          'Sawala adalah sebuah wrapper untuk Qiscus Chat SDK yang ditulis di framework React.js. Yang digunakan untuk kebutuhan internal project di Kata.ai',
         description: '',
         technologies: ['React.js', 'Storybook', 'Typescript', 'Javascript'],
         url: 'https://github.com/kata-ai/sawala',
@@ -310,7 +310,7 @@ export default [
           'Adalah dashboard untuk pengguna Qiscus Chat SDK, disana user dapat melihat statistik, tagihan, dan juga hal-hal lain terkait penggunaan Qiscus Chat SDK.',
         description: 'Qiscus SDK Dashboard dibangun menggunakan PHP Laravel, JQuery, SCSS.',
         technologies: ['PHP Laravel', 'JQuery', 'CSS'],
-        url: 'https://rohmad.herokuapp.com/portfolio',
+        url: 'https://dashboard.qiscus.com',
       },
       {
         id: 20182,

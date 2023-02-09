@@ -16,7 +16,7 @@ const Content = styled.div`
 const ContentList = styled.ul`
   width: 100%;
   padding: 0;
-  margin-top: 35px;
+  margin-top: 0;
 
   @media only screen and (max-width: 768px) {
     width: 97%;
@@ -47,10 +47,8 @@ const ContentList = styled.ul`
   }
 `;
 const ContentListGroup = styled.div`
-  padding-top: 70px;
-
   @media only screen and (max-width: 414px) {
-    padding-top: 22px;
+    padding-top: 14px;
   }
 `;
 const ContentListItemSection = styled.li`

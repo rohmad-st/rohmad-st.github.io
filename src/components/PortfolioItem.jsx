@@ -191,7 +191,7 @@ const PortfolioItem = ({ isDetail, item, index, onSelect }) => {
   }
 
   function getCreatedBy() {
-    const createdBy = 'Dibuat pada:';
+    const createdBy = 'Dibuat:';
     const { from, to } = item.date;
     if (from === to) return `${createdBy} ${from}`;
     return `${createdBy} ${from} - ${to}`;
